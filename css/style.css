@@ -243,21 +243,5 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
-
-.headers {
-  color: #555555;
-  font-family: serif;
-  text-align: center;
-}
-
-.paragraphs {
-  color: #222222;
-  font-family: serif;
-  text-align: center;
-}
-
-background {
-  color: #7f7f7f;
-}
 }
 
