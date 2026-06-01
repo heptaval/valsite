@@ -246,18 +246,18 @@ textarea {
 
 .headers {
   color: #555555;
-  font-family: "SF Pro";
+  font-family: "SF Pro", serif;
   text-align: center;
 }
 
 .paragraphs {
   color: #222222;
-  font-family: "SF Pro";
+  font-family: "SF Pro", serif;
   text-align: center;
 }
 
 background {
-  color: #000;
+  color: #7f7f7f;
 }
 }
 
