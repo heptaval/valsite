@@ -243,5 +243,21 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
+
+.headers {
+  color: #555555;
+  font-family: "SF Pro";
+  text-align: center;
+}
+
+.paragraphs {
+  color: #222222;
+  font-family: "SF Pro";
+  text-align: center;
+}
+
+background {
+  color: #000;
+}
 }
 
