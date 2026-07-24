@@ -37,38 +37,37 @@
       text-shadow: 0 0 15px #0097ab;
     }
     .div2 {
-      background-color: black;
+      background-color: rgba(0, 0, 0, 0.459);
       border-radius: 25px;
       place-self: center;
       width: fit-content;
     }
     .table {
       column-width: auto;
+      border-bottom: 2px black;
+      border-right: 2px black;
     }
-    .headRow {
-      color:#001a3a;
-    }
+    .headRow
     .tableRow {
       background-color: #0097ab;
     }
-    .tableHead {
-      padding-left: 25px;
-      padding-right: 25px;
-      padding-bottom: 5px;
-      padding-top: 5px;
+    th {
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 10px;
+      padding-top: 10px;
       color: pink;
       text-align: center;
+      font-size: 25px;
     }
-    .tableCont {
-      padding-left: 25px;
-      padding-right: 25px;
-      padding-bottom: 5px;
-      padding-top: 5px;
+    td {
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      font-size: 25px;
       color: white;
       text-align: center;
-    }
-    tr:nth-child(n-1) {
-      background-color: #001a3a;
     }
   </style>
   <meta charset="UTF-8">
@@ -82,20 +81,20 @@
 <div class="div2">
   <table class="table">
     <tr class="headRow">
-      <th class="tableHead">GD Song</th>
-      <th class="tableHead">Mashupped Song</th>
-      <th class="tableHead">GD Artist</th>
-      <th class="tableHead">Mashupped Artist</th>
-      <th class="tableHead">File Link</th>
-      <th class="tableHead">Copy Link</th>
+      <th>GD Song</th>
+      <th>Mashupped Song</th>
+      <th>GD Artist</th>
+      <th>Mashupped Artist</th>
+      <th>File Link</th>
+      <th>Copy Link</th>
     </tr>
     <tr class="tableRow">
-      <td class="tableCont">Classical VIP</td>
-      <td class="tableCont">fuck 3x</td>
-      <td class="tableCont">NightKILLA</td>
-      <td class="tableCont">thasup</td>
-      <td class="tableCont"><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3">502268</a></td>
-      <td class="tableCont">this isnt working yet sorry</td>
+      <td>Classical VIP</td>
+      <td>fuck 3x</td>
+      <td>NightKILLA</td>
+      <td>thasup</td>
+      <td><a class="tcLink" href="https://heptaval.github.io/valsite/pages/mymashups/fuckclassicalvip.mp3" download="502268">502268</a></td>
+      <td>this isnt working yet sorry</td>
     </tr>
     <tr>
       <td></td>
