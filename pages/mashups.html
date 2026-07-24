@@ -14,10 +14,10 @@
       text-align: center;
     }
     @font-face {
-      font-family: SFPro; src: url("fonts/SFPro.otf") format("opentype")
+      font-family: SFPro; src: url("https://heptaval.github.io/valsite/fonts/SFPro.otf") format("opentype")
     }
     @font-face {
-      font-family: SFProBold; src: url("fonts/SFProBold.otf") format("opentype")
+      font-family: SFProBold; src: url("https://heptaval.github.io/valsite/fonts/SFProBold.otf") format("opentype")
     }
     .header {
       color: #00eeff;
@@ -67,6 +67,7 @@
       color: pink;
       text-align: center;
       font-size: 25px;
+      font-family: SFProBold;
     }
     td {
       padding-left: 50px;
@@ -74,8 +75,26 @@
       padding-bottom: 10px;
       padding-top: 10px;
       font-size: 25px;
+      font-family: SFPro;
       color: white;
       text-align: center;
+    }
+    button {
+      background-color: rgb(127, 172, 255);
+      border-radius: 10px;
+      color: white;
+      font-size: 25px;
+      padding: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      cursor: pointer;
+      border: none;
+      font-family: SFProBold;
+    }
+    .tcLink {
+      text-decoration: none;
+      color:rgb(127, 172, 255);
+      font-family: SFProBold;
     }
   </style>
   <meta charset="UTF-8">
@@ -94,7 +113,7 @@
       <th>GD Artist</th>
       <th>Mashupped Artist</th>
       <th>File Link</th>
-      <th>Copy Link</th>
+      <th>Copy Link (For Jukebox)</th>
     </tr>
     <tr class="tableRow">
       <td>Classical VIP</td>
@@ -102,7 +121,7 @@
       <td>NightKILLA</td>
       <td>thasup</td>
       <td><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3" download="502268">502268</a></td>
-      <td><button onclick="copy_to_clipboard('502268')">copy link</button></td>
+      <td><button onclick="copy_to_clipboard('502268')">502268</button></td>
       <p id="502268">https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3</p>
     </tr>
     <tr>
