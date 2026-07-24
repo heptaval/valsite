@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:style="http://www.w3.org/1999/xhtml">
 <head>
+  <script>
+    function copy_to_clipboard( elm_id ) {
+
+    var text = document.getElementById( elm_id ).innerHTML;
+
+    navigator.clipboard.writeText( text );
+    }
+  </script>
   <style>
     .div1 {
       text-align: center;
@@ -93,8 +101,9 @@
       <td>fuck 3x</td>
       <td>NightKILLA</td>
       <td>thasup</td>
-      <td><a class="tcLink" href="https://heptaval.github.io/valsite/pages/mymashups/fuckclassicalvip.mp3">502268</a></td>
-      <td>this isnt working yet sorry</td>
+      <td><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3" download="502268">502268</a></td>
+      <td><button onclick="copy_to_clipboard('502268')">copy link</button></td>
+      <p id="502268">https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3</p>
     </tr>
     <tr>
       <td></td>
