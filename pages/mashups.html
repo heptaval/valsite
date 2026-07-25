@@ -87,6 +87,9 @@
       border: none;
       font-family: SFProBold;
     }
+    button:active {
+      background-color:rgb(51, 143, 255)
+    }
     .tcLink {
       text-decoration: none;
       color:rgb(127, 172, 255);
@@ -94,6 +97,12 @@
     }
     .ids {
       font-size: 0px;
+    }
+    .nobackground {
+      background-color: rgba(0, 0, 0, 0);
+    }
+    tr:not(:first-child):not(:last-child):hover {
+      background-color: rgba(255, 255, 255, 0.191);
     }
   </style>
   <link rel="icon" href="https://heptaval.github.io/valsite/favicon.ico" sizes="any">
@@ -125,7 +134,7 @@
       <td><button onclick="copy_to_clipboard('502268')">502268</button></td>
       <p class="ids" id="502268">https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3</p>
     </tr>
-    <tr>
+    <tr class="nobackground">
       <td></td>
       <td></td>
       <td></td>
