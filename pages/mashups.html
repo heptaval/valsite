@@ -64,6 +64,7 @@
       text-align: center;
       font-size: 25px;
       font-family: SFProBold;
+      text-shadow: 0 0 50px rgba(255, 212, 219, 0.501);
     }
     td {
       padding-left: 50px;
@@ -103,6 +104,7 @@
     }
     tr:not(:first-child):not(:last-child):hover {
       background-color: rgba(255, 255, 255, 0.191);
+      box-shadow: 0 0 75px rgba(255, 255, 255, 0.15);
     }
     .discdiv {
       padding-top: 75px;
@@ -115,10 +117,10 @@
       text-shadow: 0 0 5px rgba(255, 255, 255, 0.348);
     }
     .bgoverlay {
-      background-image: url("https://heptaval.github.io/valsite/cssimg/backgroundimage.jpg");
-      background-repeat: repeat-y;
-      mix-blend-mode: darken;
+      
     }
+
+    
   </style> <!-- will eventually move styles to an actual stylesheet -->
   <link rel="icon" href="https://heptaval.github.io/valsite/favicon.ico" sizes="any">
   <link rel="icon" href="https://heptaval.github.io/valsite/icon.svg" type="image/svg+xml">
@@ -126,43 +128,43 @@
   <title>My Mashups!</title>
 </head>
 <body>
-  <div id="bgoverlay">
+  <div id="bgoverlay"> <!-- will add bg overlay whenever i figure it out -->
     <div class="div1">
-  <h1 class="header">Welcome to my Mashups Page!</h1>
-  <p class="paragraphs" style="font-size: 200%">here you will find all of my mashups, gd or not!</p>
-</div>
-<div class="div2">
-  <table class="table">
-    <tr class="headRow">
-      <th>GD Song</th>
-      <th>Mashupped Song</th>
-      <th>GD Artist</th>
-      <th>Mashupped Artist</th>
-      <th>File Link</th>
-      <th>Copy Link (For Jukebox)</th>
-    </tr>
-    <tr class="tableRow">
-      <td>Classical VIP</td>
-      <td>fuck 3x</td>
-      <td>NightKILLA</td>
-      <td>thasup</td>
-      <td><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3" download="502268">502268</a></td>
-      <td><button onclick="copy_to_clipboard('502268')">502268</button></td>
-      <p class="ids" id="502268">https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3</p>
-    </tr>
-    <tr class="nobackground">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-</div>
-<div class="discdiv">
-  <p class="disclaimer">all copyrighted contents on this website are of their respective owners. <br> if you are a content owner and you wish for your content to be removed <br> please contact me at valmusic142@gmail.com so it can be resolved peacefully </p>
-</div>
+      <h1 class="header">Welcome to my Mashups Page!</h1>
+      <p class="paragraphs" style="font-size: 200%">here you will find all of my mashups, gd or not!</p>
+    </div>
+    <div class="div2">
+      <table class="table">
+        <tr class="headRow">
+          <th>GD Song</th>
+          <th>Mashupped Song</th>
+          <th>GD Artist</th>
+          <th>Mashupped Artist</th>
+          <th>File Link</th>
+          <th>Copy Link (For Jukebox)</th>
+        </tr>
+        <tr class="tableRow">
+          <td>Classical VIP</td>
+          <td>fuck 3x</td>
+          <td>NightKILLA</td>
+          <td>thasup</td>
+          <td><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3" download="502268">502268</a></td>
+          <td><button onclick="copy_to_clipboard('502268')">502268</button></td>
+          <p class="ids" id="502268">https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3</p>
+        </tr>
+        <tr class="nobackground">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <div class="discdiv">
+      <p class="disclaimer">all copyrighted content on this website is property of its respective owner. <br> if you are a content owner and you wish for your content to be removed <br> please contact me at valmusic142@gmail.com so it can be resolved peacefully </p>
+    </div>
   </div>
 </body>
 </html>
