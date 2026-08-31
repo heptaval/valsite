@@ -10,60 +10,75 @@
       font-family: SFProBold; src: url("fonts/SFProBold.otf") format("opentype")
     }
 .headers {
-  color: #00eeff;
+  color: #ffffff;
   font-family: SFPro;
   text-align: center;
-  text-shadow: 0 0 15px #0097ab ;
-  font-size: 60px;
-  background-color: #00000082;
-  padding: 25px;
+  text-shadow: 0 0 15px #ffffff73 ;
+  font-size: 375%; /*used to be 60px*/
+  background-color: #00000078;
+  padding: 6%; /*used to be 25px*/
+  border-radius: 20px; 
+  fill-opacity: 50%;
+  width: 104.5%; /*used to be fit-content*/
+  place-self: center;
+}
+.headers2 {
+  color: #ffffff;
+  font-family: SFPro;
+  text-align: center;
+  text-shadow: 0 0 15px #ffffff73 ;
+  font-size: 250%; /*used to be 40px*/
+  background-color: #00000078;
+  padding: 0.8%; /*used to be 15px*/
   border-radius: 20px;
   fill-opacity: 50%;
+  width: fit-content;
+  place-self: center;
 }
 .paragraphs {
-  color: #00eeff;
+  color: #98dbff;
   font-family: SFPro;
   text-align: center;
-  text-shadow: 0 0 15px #0097ab;
+  text-shadow: 0 0 30px #98dbffc0;
+  font-size: 185%; /*used to be 30px*/
 }
 .links {
   text-align: center;
   font-family: SFProBold;
-  color: #515151;
-  text-shadow: 0 0 15px #535353;
+  color: #001a3a;
   text-decoration: none;
   display: inline-block;
   font-style: bold;
-  font-size: 150%;
+  font-size: 180%;
 }
 .linkdiv {
   text-align: center;
   place-self: center;
   font-family: SFPro;
   background-color: #ffffff;
-  box-shadow: 0 0 25px #ffffff;
+  box-shadow: 0 0 25px #ffffff76;
   height: fit-content;
-  padding-top:0.5%;
-  padding-bottom:0.5%;
+  padding-top: 1%; /*used to be 20px*/
+  padding-bottom:1%; /*used to be 20px*/
   width: 120%;
 }
 body {
-  background-image: linear-gradient(to bottom, black, #001a3a);
+  background-image: linear-gradient(to bottom, rgb(11, 0, 31), #001a3a);
   height: auto;
   background-attachment: fixed;
   background-size: cover;
 }
 .titlehead {
-  height: 150px;
+  height: 140%; /*used to be 125px*/
   width:fit-content;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 25%; /*used to be 100px*/
+  padding-right: 25%; /*used to be 100px*/
   align-content: center;
   place-self: center;
   border-radius: 20px;
 }
 .titlefloat {
-  height:250px;
+  height: 250%; /*used to be 200px*/
   align-content: center;
 }
 .p2 {
@@ -78,32 +93,65 @@ body {
   place-self: center;
   text-align: center;
   font-family: SFProBold;
-  font-size: larger;
-  color: #515151;
+  font-size: 25px;
+  color: #001a3a;
   text-shadow: 0 0 20px #535353;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(255, 255, 255);
   stroke-width: 5px;
-  stroke-color: ;
-  border-radius: 20px;
-  padding:25px;
+  border-radius: 10px;
+  padding: 10px; /*used to be 10px, will be kept as such for the time being*/
   fill-opacity: 50%;
-  box-shadow: 0 0 25px #ffffff80;
   text-decoration:none;
 }
-
-
-
+table {
+  place-self: center;
+  padding-top: 100px; /*used to be 100px, will be kept*/
+  padding-bottom: 100px; /*used to be 100px, will be kept*/
+  font-family: SFProBold;
+  text-align: center;
+}
+.pdiv {
+  padding-bottom: 15px;
+}
+.yadiv {
+  padding-bottom: 50px;
+}
+.pagesdiv {
+  padding-top: 20px;
+}
+.pagestable {
+  background-color: #ffffff;
+  font-size: 50px;
+  text-decoration: none;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 25px;
+  row-gap: 50px;
+}
+.pages {
+  text-decoration: none;
+  color: #001a3a;
+}
+tr {
+  border: top 10px #001a3a;
+  border-collapse: collapse;
+}
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Val's Frontpage!</title>
   <meta name="description" content="">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+
+  <meta property="og:site_name" content="valsite">
+  <meta property="og:title" content="heptaval's frontpage!">
+  <meta property="og:description" content="a hub for all content regarding heptaval (me), from youtube to github, newgrounds and more!">
+  <meta property="og:image" content="https://heptaval.github.io/valsite/icon.png">
   <meta property="og:image:alt" content="">
+  <meta property="og:image:height" content="30">
+  <meta property="og:image:width" content="30">
 
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -111,28 +159,48 @@ body {
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
 </head>
-<link rel="stylesheet" src: url("css/style.css")>
+<link rel="stylesheet" src: url("https://heptaval.github.io/valsite/css/style.css")>
 <body>
   <div class="titlefloat">
     <div class="titlehead">
       <h1 class="headers">Val's frontpage!</h1>
     </div>
   </div>
-  
-  <p class="paragraphs">this is a work in progress and will be made prettier over time, I only just started making this <br> to learn webdev, so it won't be anything too insane, do understand that :p</p>
+  <div class="pdiv">
+    <p class="paragraphs">hello! I'm heptaval, but you may know me as val! I started making this <br> to learn webdev and so that I have a place to put all my stuff, so <br> feel free to check any page out! do understand this is kind of a work in progress <br> as it stands, so there will be some issues here and there :)</p>
+  </div>
   <div class="thingy">
-  <a class="thingy" href="/info">general info here</a>
+  <a class="thingy" href="/info">GENERAL INFO HERE (NOT YET DONE)</a>
+  </div>
+  <h2 class="headers2">MY LINKS</h2>
+  <p class="paragraphs">here you'll find most if not all stuff about me, though right now<br>I don't yet have every page up and running :)</p>
+  <div class="pagesdiv">
+    <table class="pagestable">
+      <tr>
+        <td><a href="https://heptaval.github.io/valsite/pages/mashups" class="pages">MY MASHUPS</a></td>
+      </tr>
+      <tr>
+        <td><a class="pages">MY PICTURES</a></td>
+      </tr>
+      <tr>
+        <td><a class="pages">MY ART</a></td>
+      </tr>
+    </table>
   </div>
   <p class="p2">check out my accounts while you're at it! :)</p>
   <br>
-  <div class="linkdiv">
-  <a class="links" href="https://www.youtube.com/@heptaval">YOUTUBE CHANNEL</a>
-  <a class="links">|</a>
-  <a class="links" href="https://www.youtube.com/@lavatpeh">ALT YOUTUBE CHANNEL</a>
-  <a class="links">|</a>
-  <a class="links" href="https://gdbrowser.com/u/heptaval">MY GD ACCOUNT</a>
-  <a class="links">|</a>
-  <a class="links" href="https://i.ytimg.com/vi/xQG2mPXyVbs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDP8DDJCF4LkRp6zwioJ3LEi2G8KQ">yeah thats kinda it lol</a>
+  <div class="yadiv">
+    <div class="linkdiv">
+    <a class="links" href="https://www.youtube.com/@heptaval">YOUTUBE CHANNEL</a>
+    <a class="links">|</a>
+    <a class="links" href="https://www.youtube.com/@lavatpeh">ALT YOUTUBE CHANNEL</a>
+    <a class="links">|</a>
+    <a class="links" href="https://gdbrowser.com/u/heptaval">GD ACCOUNT</a>
+    <a class="links">|</a>
+    <a class="links" href="https://heptaval.newgrounds.com/">NEWGROUNDS</a>
+    <a class="links">|</a>
+    <a class="links" href="https://github.com/heptaval">GITHUB</a>
+    </div>
   </div>
   <script src="js/app.js"></script>
 

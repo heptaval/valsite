@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:style="http://www.w3.org/1999/xhtml">
 <head>
+  <script>
+    function copy_to_clipboard( elm_id ) {
+
+    var text = document.getElementById( elm_id ).innerHTML;
+
+    navigator.clipboard.writeText( text );
+    }
+  </script>
   <style>
     .div1 {
       text-align: center;
     }
     @font-face {
-      font-family: SFPro; src: url("fonts/SFPro.otf") format("opentype")
+      font-family: SFPro; src: url("https://heptaval.github.io/valsite/fonts/SFPro.otf") format("opentype")
     }
     @font-face {
-      font-family: SFProBold; src: url("fonts/SFProBold.otf") format("opentype")
+      font-family: SFProBold; src: url("https://heptaval.github.io/valsite/fonts/SFProBold.otf") format("opentype")
     }
     .header {
-      color: #00eeff;
+      color: #ffffff;
       font-family: SFPro;
       text-align: center;
-      text-shadow: 0 0 15px #0097ab ;
+      text-shadow: 0 0 15px #ffffff73 ;
       font-size: 60px;
-      background-color: #00000082;
+      background-color: #00000078;
       padding: 25px;
       border-radius: 20px;
       fill-opacity: 50%;
@@ -25,25 +33,195 @@
       place-self: center;
     }
     body {
-      background-image: linear-gradient(to bottom, black, #001a3a);
+      background: linear-gradient(to bottom, rgb(11, 0, 31), #001a3a);
       height: auto;
       background-attachment: fixed;
       background-size: cover;
     }
     .paragraphs {
-      color: #00eeff;
+      color: #98dbff;
       font-family: SFPro;
       text-align: center;
-      text-shadow: 0 0 15px #0097ab;
+      text-shadow: 0 0 30px #98dbffc0;
     }
-  </style>
+    .div2 {
+      background-color: rgba(0, 0, 0, 0.459);
+      border-radius: 25px;
+      place-self: center;
+      width: fit-content;
+    }
+    .table {
+      column-width: auto;
+      border-bottom: 2px black;
+      border-right: 2px black;
+    }
+    th {
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 10px;
+      padding-top: 20px;
+      color: pink;
+      text-align: center;
+      font-size: 25px;
+      font-family: SFProBold;
+      text-shadow: 0 0 50px rgba(255, 212, 219, 0.501);
+    }
+    td {
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      font-size: 25px;
+      font-family: SFPro;
+      color: white;
+      text-align: center;
+    }
+    button {
+      background-color: rgb(127, 172, 255);
+      border-radius: 10px;
+      color: white;
+      font-size: 25px;
+      padding: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      cursor: pointer;
+      border: none;
+      font-family: SFProBold;
+    }
+    button:active {
+      background-color:rgb(51, 143, 255)
+    }
+    .tcLink {
+      text-decoration: none;
+      color:rgb(127, 172, 255);
+      font-family: SFProBold;
+    }
+    .ids {
+      font-size: 0px;
+    }
+    .nobackground {
+      background-color: rgba(0, 0, 0, 0);
+    }
+    tr:not(:first-child):not(:last-child):hover {
+      background-color: rgba(255, 255, 255, 0.191);
+      box-shadow: 0 0 75px rgba(255, 255, 255, 0.15);
+    }
+    .discdiv {
+      padding-top: 75px;
+    }
+    .disclaimer {
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      font-family: SFProBold;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.348);
+    }
+    .homebutton {
+      padding-top: 50px;
+      place-self: center;
+      font-size: 30px;
+      width: fit-content;
+    }
+    .links {
+      font-family: SFProBold;
+      text-decoration: none;
+      color:#001a3a;
+      background-color: rgb(255, 255, 255);
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 15px;
+    }
+
+    
+  </style> <!-- will eventually move styles to an actual stylesheet -->
+  <link rel="icon" href="https://heptaval.github.io/valsite/favicon.ico" sizes="any">
+  <link rel="icon" href="https://heptaval.github.io/valsite/icon.svg" type="image/svg+xml">
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>My Mashups!</title>
+  <meta property="og:site_name" content="valsite">
+  <meta property="og:title" content="heptaval's mashups page!">
+  <meta property="og:description" content="a page for all of heptaval(me)'s truly AMAZING mashups, no low quality content here for sure!">
+  <meta property="og:image" content="https://heptaval.github.io/valsite/icon.png">
+  <meta property="og:image:width" content="30">
+  <meta property="og:image:height" content="30">
 </head>
 <body>
-<div class="div1">
-  <h1 class="header">Welcome to my Mashups Page!</h1>
-  <p class="paragraphs" style="font-size: 200%">here you will find all of my mashups, gd or not!</p>
-</div>
+  <div id="bgoverlay"> <!-- will add bg overlay whenever i figure it out -->
+    <div class="div1">
+      <h1 class="header">Welcome to my Mashups Page!</h1>
+      <p class="paragraphs" style="font-size: 200%">here you will find all of my mashups, gd or not!</p>
+    </div>
+    <div class="div2">
+      <table class="table">
+        <tr class="headRow">
+          <th>GD Song</th>
+          <th>Mashupped Song</th>
+          <th>GD Artist</th>
+          <th>Mashupped Artist</th>
+          <th>Download Link</th>
+          <th>Copy Link (For Jukebox)</th>
+        </tr>
+        <tr class="tableRow">
+          <td>Classical VIP</td>
+          <td>fuck 3x</td>
+          <td>NightKILLA</td>
+          <td>thasup</td>
+          <td><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3" download="502268">502268</a></td>
+          <td><button onclick="copy_to_clipboard('502268')">502268</button></td>
+          <p class="ids" id="502268">https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3</p>
+        </tr>
+        <tr class="tableRow">
+          <td>In Circles</td>
+          <td>no14</td>
+          <td>Creo</td>
+          <td>thasup</td>
+          <td><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3"></a></td>
+        </tr>
+        <tr class="tableRow">
+          <td>δ:for the DELTA</td>
+          <td>Armed and Dangerous</td>
+          <td>Camellia</td>
+          <td>King Von</td>
+          <td><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/armedanddeltarous" download="10007119">10007119</a></td>
+          <td><button onclick="copy_to_clipboard('10007119(2)')">10007119</button></td>
+          <p class="ids" id="10007119(2)">https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3</p>
+        </tr>
+        <tr class="tableRow">
+          <td>δ:for the DELTA</td>
+          <td>Took Her to The O</td>
+          <td>Camellia</td>
+          <td>King Von</td>
+          <td><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/tookhertothedelta" download="10007119">10007119</a></td>
+          <td><button onclick="copy_to_clipboard('10007119(1)')">10007119</button></td>
+          <p class="ids" id="10007119(1)">https://heptaval.github.io/valsite/audiofiles/mymashups/fuckclassicalvip.mp3</p>
+        </tr>
+        <tr class="tableRow">
+          <td>Sphere</td>
+          <td>Diamonds From Sierra Leone (Remix)</td>
+          <td>Creo</td>
+          <td>Kanye West</td>
+          <td><a class="tcLink" href="https://heptaval.github.io/valsite/audiofiles/mymashups/zodiacfromsierraleone.mp3" download="739991">739991</a></td>
+          <td><button onclick="copy_to_clipboard('739991')">739991</button></td>
+          <p class="ids" id="739991">https://heptaval.github.io/valsite/audiofiles/mymashups/zodiacfromsierraleone.mp3</p>
+        </tr>
+        <tr class="nobackground">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <div class="homebutton">
+      <a class="links" href="https://heptaval.github.io/valsite/">HOMEPAGE</a>
+    </div>
+    <div class="discdiv">
+      <p class="disclaimer">all copyrighted content on this website is property of its respective owner. <br> if you are a content owner and you wish for your content to be removed <br> please contact me at valmusic142@gmail.com so it can be resolved peacefully </p>
+    </div>
+  </div>
 </body>
 </html>
