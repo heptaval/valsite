@@ -134,7 +134,105 @@
       border-radius: 15px;
     }
 
-    
+    .tableRow {
+      cursor: pointer;
+    }
+    .tableRow.nowPlaying {
+      background-color: rgba(127, 172, 255, 0.221);
+      box-shadow: 0 0 75px rgba(127, 172, 255, 0.35);
+    }
+
+    #mashupPlayer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: translateY(150%);
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      width: 100%;
+      padding: 30px 60px;
+      background-color: rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+      z-index: 999;
+      backdrop-filter: blur(10px);
+    }
+    #mashupPlayer.visible {
+      transform: translateY(0);
+    }
+    #mashupPlayer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: rgba(179, 240, 255, 0.3);
+    }
+    #mashupPlayer #mpTitle {
+      color: #98dbff;
+      font-family: SFProBold;
+      font-size: 22px;
+      white-space: nowrap;
+      text-shadow: 0 0 30px rgb(127, 172, 255);
+    }
+    #mashupPlayer button {
+      font-size: 20px;
+    }
+    #mashupPlayer input[type="range"] {
+      flex: 0.9;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      height: 10px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.25);
+    }
+    #mashupPlayer input[type="range"]:focus {
+      outline: none;
+    }
+    #mashupPlayer input[type="range"]::-moz-focus-inner {
+      border: 0;
+    }
+    #mashupPlayer input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    #mashupPlayer input[type="range"]::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    #mashupPlayer input[type="range"]::-moz-range-progress {
+      background: transparent;
+    }
+    #mashupPlayer input[type="range"]::-moz-range-track {
+      background: rgba(255, 255, 255, 0.25);
+      border: none;
+      height: 10px;
+      border-radius: 5px;
+    }
+    #mashupPlayer #mpVolume {
+      flex: none;
+      width: 120px;
+    }
+    #mashupPlayer #mpTime {
+      color: white;
+      font-family: SFProBold;
+      font-size: 20px;
+      min-width: 110px;
+      text-align: center;
+    }
+
   </style> <!-- will eventually move styles to an actual stylesheet -->
   <link rel="icon" href="https://heptaval.github.io/valsite/favicon.ico" sizes="any">
   <link rel="icon" href="https://heptaval.github.io/valsite/icon.svg" type="image/svg+xml">
@@ -261,5 +359,113 @@
       <p class="disclaimer">all copyrighted content on this website is property of its respective owner. <br> if you are a content owner and you wish for your content to be removed <br> please contact me at valmusic142@gmail.com so it can be resolved peacefully </p>
     </div>
   </div>
+
+  <div id="mashupPlayer">
+    <button id="mpPlayPause">Play</button>
+    <span id="mpTitle">—</span>
+    <input id="mpSeek" type="range" min="0" max="100" value="0" step="0.1">
+    <span id="mpTime">0:00 / 0:00</span>
+    <input id="mpVolume" type="range" min="0" max="1" value="1" step="0.01">
+    <button id="mpClose">Close</button>
+  </div>
+  <audio id="mpAudio" preload="none"></audio>
+
+  <script>
+    (function () {
+      var audio = document.getElementById('mpAudio');
+      var bar = document.getElementById('mashupPlayer');
+      var playPauseBtn = document.getElementById('mpPlayPause');
+      var titleEl = document.getElementById('mpTitle');
+      var seek = document.getElementById('mpSeek');
+      var timeEl = document.getElementById('mpTime');
+      var volume = document.getElementById('mpVolume');
+      var closeBtn = document.getElementById('mpClose');
+      var currentRow = null;
+
+      audio.volume = volume.value;
+      fillRange(volume);
+      fillRange(seek);
+
+      function fmt(s) {
+        if (!isFinite(s)) return '0:00';
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+
+      function fillRange(input) {
+        var min = parseFloat(input.min) || 0;
+        var max = parseFloat(input.max) || 100;
+        var pct = ((input.value - min) / (max - min)) * 100;
+        input.style.background = 'linear-gradient(to right, rgb(255, 255, 255) ' + pct + '%, rgba(255, 255, 255, 0.25) ' + pct + '%)';
+      }
+
+      function playRow(row) {
+        var link = row.querySelector('a.tcLink');
+        if (!link) return;
+
+        var src = link.getAttribute('href');
+        var song = row.children[0] ? row.children[0].textContent : '';
+        var mashup = row.children[1] ? row.children[1].textContent : '';
+
+        if (currentRow === row) {
+          // same track: toggle play/pause
+          audio.paused ? audio.play() : audio.pause();
+          return;
+        }
+
+        if (currentRow) currentRow.classList.remove('nowPlaying');
+        currentRow = row;
+        row.classList.add('nowPlaying');
+
+        audio.src = src;
+        audio.play();
+        seek.value = 0;
+        fillRange(seek);
+        titleEl.textContent = song + ' x ' + mashup;
+        bar.classList.add('visible');
+      }
+
+      document.querySelectorAll('tr.tableRow').forEach(function (row) {
+        row.addEventListener('click', function (e) {
+          if (e.target.closest('a, button')) return; // let download/copy work normally
+          playRow(row);
+        });
+      });
+
+      playPauseBtn.addEventListener('click', function () {
+        audio.paused ? audio.play() : audio.pause();
+      });
+
+      audio.addEventListener('play', function () { playPauseBtn.textContent = 'Pause'; });
+      audio.addEventListener('pause', function () { playPauseBtn.textContent = 'Play'; });
+      audio.addEventListener('ended', function () { playPauseBtn.textContent = 'Play'; });
+
+      audio.addEventListener('timeupdate', function () {
+        seek.value = (audio.currentTime / audio.duration) * 100 || 0;
+        timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        fillRange(seek);
+      });
+
+      seek.addEventListener('input', function () {
+        if (audio.duration) audio.currentTime = (seek.value / 100) * audio.duration;
+        fillRange(seek);
+      });
+
+      volume.addEventListener('input', function () {
+        audio.volume = volume.value;
+        fillRange(volume);
+      });
+
+      closeBtn.addEventListener('click', function () {
+        audio.pause();
+        audio.removeAttribute('src');
+        bar.classList.remove('visible');
+        if (currentRow) currentRow.classList.remove('nowPlaying');
+        currentRow = null;
+        seek.value = 0;
+        fillRange(seek);
+      });
+    })();
+  </script>
 </body>
 </html>
